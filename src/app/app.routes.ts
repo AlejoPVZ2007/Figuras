@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Figuras } from './figuras/figuras';
 import { Login } from './login/login';
 import { Principal } from './principal/principal';
+import { Gestion } from './gestion/gestion';
 
 
 export const routes: Routes = [
@@ -9,5 +10,5 @@ export const routes: Routes = [
     { path: '', component: Login },
     { path: 'figuras', component: Figuras },
     { path: 'principal', component: Principal },
-
+    { path : 'gestion', component: Gestion},
 ];
