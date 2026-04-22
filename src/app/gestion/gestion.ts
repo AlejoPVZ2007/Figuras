@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { NgIf } from "@angular/common";
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { Footer } from "../footer/footer";
 
 interface Food {
   value: string;
@@ -30,10 +31,11 @@ interface Food {
     MatNativeDateModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule, 
+    MatIconModule,
     MatSelectModule,
     FormsModule,
-    NgIf],
+    Footer,
+    NgIf, Footer],
   templateUrl: './gestion.html',
   styleUrl: './gestion.css',
 })
