@@ -6,11 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Footer } from "../footer/footer";
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @Component({
   selector: 'app-principal',
-  imports: [RouterModule, Navbar, Footer, MatCardModule, MatButtonModule, MatIconModule, Footer, MatGridListModule],
+  imports: [RouterModule, Navbar, Footer, MatCardModule, MatButtonModule, MatIconModule, Footer, MatGridListModule, MatTabsModule],
   templateUrl: './principal.html',
   styleUrl: './principal.css',
 })
