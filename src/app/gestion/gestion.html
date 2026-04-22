@@ -1,1 +1,77 @@
-<p>gestion works!</p>
+<div class="container">
+  <!-- FORMULARIO -->
+    <mat-card class="form-card">
+        <mat-card-header>
+        <mat-card-title>Agregar una nueva figura</mat-card-title>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="Ej: Goku">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Tamaño</mat-label>
+                <input matInput type="text" placeholder="Ej: 30cm">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Serie</mat-label>
+                <mat-select>
+                    @for (food of foods; track food) {
+                    <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha agregada</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Ej: 01/01/2026">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">
+                <mat-icon>add</mat-icon> Agregar
+            </button>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- TABLA -->
+    <mat-card class="table-card">
+        <table mat-table [dataSource]="[]">
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tamaño">
+            <th mat-header-cell *matHeaderCellDef>Tamaño</th>
+            <td mat-cell *matCellDef="let row">{{ row.tamanio }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="serie">
+            <th mat-header-cell *matHeaderCellDef>Serie</th>
+            <td mat-cell *matCellDef="let row">{{ row.serie }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let row">{{ row.fecha }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="imagen">
+            <th mat-header-cell *matHeaderCellDef>Imagen</th>
+            <td mat-cell *matCellDef="let row">
+                <img [src]="row.imagen" [alt]="row.nombre" width="50" height="50" 
+                    style="object-fit: cover; border-radius: 4px;"
+                    *ngIf="row.imagen">
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+        </table>
+    </mat-card>
+</div>

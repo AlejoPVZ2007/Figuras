@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+
+.form-card {
+  width: 350px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+mat-checkbox {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.table-card {
+  flex: 1;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
