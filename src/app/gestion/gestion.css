@@ -1,28 +1,32 @@
 .container {
-  display: flex;
-  gap: 24px;
-  padding: 24px;
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background-image: url("https://areajugones.sport.es/wp-content/uploads/2025/02/15-mejjores-animes-de-la-ultima-decada-1-1560x880.jpg.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .form-card {
-  width: 350px;
+    width: 350px;
 }
 
 mat-form-field {
-  width: 100%;
-  margin-bottom: 12px;
+    width: 100%;
+    margin-bottom: 12px;
 }
 
 mat-checkbox {
-  display: block;
-  margin-bottom: 16px;
+    display: block;
+    margin-bottom: 16px;
 }
 
 .table-card {
-  flex: 1;
-  overflow-x: auto;
+    flex: 1;
+    overflow-x: auto;
 }
 
 table {
-  width: 100%;
+    width: 100%;
 }
