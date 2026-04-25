@@ -6,6 +6,7 @@
         linear-gradient(180deg, #090B13 0%, #0F1320 55%, #0A0D16 100%);
     border-top: 4px solid #ff7d1a;
     color: #d3cdc4;
+    
 }
 
 .site-footer::before {
@@ -13,16 +14,15 @@
     position: absolute;
     inset: 0;
     background-image: radial-gradient(circle at 20% 20%, rgba(255, 125, 26, 0.16), transparent 28%),
-                      radial-gradient(circle at 85% 40%, rgba(255, 255, 255, 0.06), transparent 12%);
+                    radial-gradient(circle at 85% 40%, rgba(255, 255, 255, 0.06), transparent 12%);
     pointer-events: none;
 }
 
 .footer-top {
     position: relative;
     z-index: 1;
-    padding: 5rem 0 3rem;
+    padding: 20px;
 }
-
 .footer-top .container {
     display: block;
 }
@@ -213,7 +213,7 @@
     z-index: 1;
     background: rgba(255, 125, 26, 0.05);
     border-top: 1px solid rgba(255, 125, 26, 0.18);
-    padding: 1.4rem 0;
+    padding: 20px;
 }
 
 .footer-bottom-inner {

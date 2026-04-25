@@ -1,10 +1,30 @@
 <div class="container">
-  <!-- FORMULARIO -->
+  <!-- FORMULARIO FIGURAS -->
     <mat-card class="form-card">
+        <mat-card-header>
+        <mat-card-title>Agregar una nueva serie</mat-card-title>
+        </mat-card-header>
+
+        <br>
+
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="Ej: Goku">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">
+                <mat-icon>add</mat-icon> Agregar
+            </button>
+
+        </mat-card-content>
+
         <mat-card-header>
         <mat-card-title>Agregar una nueva figura</mat-card-title>
         </mat-card-header>
+
         <br>
+
         <mat-card-content>
             <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
@@ -32,6 +52,20 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
+            <div class="imagen-upload">
+            @if (!imagenPreview) {
+                <button mat-stroked-button (click)="fileInput.click()">
+                <mat-icon>upload</mat-icon> Subir imagen
+                </button>
+                <input #fileInput type="file" accept="image/*" hidden (change)="onImagenSeleccionada($event)">
+            } @else {
+                <img [src]="imagenPreview" width="150" height="150" style="object-fit: cover; border-radius: 8px;">
+                <button mat-icon-button color="warn" (click)="eliminarImagen()">
+                <mat-icon>delete</mat-icon>
+                </button>
+            }
+            </div>
+
             <button mat-raised-button color="primary">
                 <mat-icon>add</mat-icon> Agregar
             </button>
@@ -40,13 +74,13 @@
 
     <!-- TABLA -->
     <mat-card class="table-card">
-        <table mat-table [dataSource]="[]">
+        <table mat-table [dataSource]="figuras">
         <ng-container matColumnDef="nombre">
             <th mat-header-cell *matHeaderCellDef>Nombre</th>
             <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="tamaño">
+        <ng-container matColumnDef="tamanio">
             <th mat-header-cell *matHeaderCellDef>Tamaño</th>
             <td mat-cell *matCellDef="let row">{{ row.tamanio }}</td>
         </ng-container>
@@ -70,8 +104,8 @@
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+        <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnasTabla;"></tr>
         </table>
     </mat-card>
 </div>

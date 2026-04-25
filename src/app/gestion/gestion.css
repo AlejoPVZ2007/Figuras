@@ -30,3 +30,9 @@ mat-checkbox {
 table {
     width: 100%;
 }
+.imagen-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}

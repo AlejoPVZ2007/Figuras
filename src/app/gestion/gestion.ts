@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -13,6 +13,7 @@ import { NgIf } from "@angular/common";
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { Footer } from "../footer/footer";
+import { Figura } from '../services/figura';
 
 interface Food {
   value: string;
@@ -39,7 +40,7 @@ interface Food {
   templateUrl: './gestion.html',
   styleUrl: './gestion.css',
 })
-export class Gestion {
+export class Gestion implements OnInit{
   columnas = ['nombre', 'tamaño', 'serie', 'fecha', 'imagen'];
   foods: Food[] = [
     {value: 'dragonball', viewValue: 'Dragon Ball'},
@@ -47,4 +48,36 @@ export class Gestion {
     {value: 'demonslayer', viewValue: 'Demon Slayer'},
     {value: 'mha', viewValue: 'My Hero Academia'},
   ];
+  
+  figuras: any[] = [];
+  columnasTabla = ['nombre', 'tamanio', 'serie', 'fecha', 'imagen'];
+
+  constructor(private figuraService: Figura, private cdr: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    this.figuraService.getFiguras().subscribe(data => {
+      this.figuras = data;
+      this.cdr.detectChanges();
+    });
+  }
+
+  imagenPreview: string | null = null;
+  imagenArchivo: File | null = null;
+
+  onImagenSeleccionada(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      this.imagenArchivo = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagenPreview = reader.result as string;
+      };
+      reader.readAsDataURL(this.imagenArchivo);
+    }
+  }
+
+  eliminarImagen() {
+    this.imagenPreview = null;
+    this.imagenArchivo = null;
+  }
 }
