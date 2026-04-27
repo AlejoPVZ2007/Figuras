@@ -1,29 +1,49 @@
-<body>
-        <div class="login-container">
-            <h1>Login</h1>
-            <form>
-                <label for="username">Username:</label>
-                <mat-form-field>
-                <mat-label>Nombre</mat-label>
-                <input matInput>
-                </mat-form-field>
-                <div class="example-container">
-                    <label for="password">Password:</label>
-                    <mat-form-field>
-                        <mat-label>Ingrese su contraseña</mat-label>
-                        <input matInput [type]="hide() ? 'password' : 'text'" />
-                        <button
-                        matIconButton
-                        matSuffix
-                        (click)="clickEvent($event)"
-                        [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide()"
-                        >
-                        <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                    </mat-form-field>
-                </div>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-</body>
+<div class="page-wrapper">
+
+    <!-- Panel izquierdo: Login -->
+    <div class="login-panel">
+        <h1>Login</h1>
+
+        <form class="login-form">
+
+        <!-- Username -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Ingrese su usuario" />
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" />
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+            >
+            <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <!-- Submit -->
+        <button mat-raised-button color="primary" type="submit" class="full-width">
+            Login
+        </button>
+
+        </form>
+    </div>
+
+    <!-- Panel derecho: Imagen -->
+    <div class="image-panel">
+        <mat-card>
+        <img
+            mat-card-xl-image
+            src="img/dragon.jpg"
+            alt="Anime wallpaper"
+        />
+        </mat-card>
+    </div>
+
+</div>
