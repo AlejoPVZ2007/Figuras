@@ -9,8 +9,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 2rem;
-    width: 350px;
-    min-width: 300px;
+    flex: 1;
 
     h1 {
         margin-bottom: 1.5rem;
@@ -28,18 +27,15 @@
 }
 
 .image-panel {
-    flex: 1;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
 
-    mat-card {
-        height: 100%;
-        border-radius: 0;
-        padding: 0;
-    }
-
-    img[mat-card-xl-image] {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    img {
+        height: 100vh;
+        object-fit: contain;
+        display: block;
     }
 }

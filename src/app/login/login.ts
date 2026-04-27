@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatCard } from "@angular/material/card";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,6 @@ import { MatCard } from "@angular/material/card";
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatCard
 ],
   templateUrl: './login.html',
   styleUrl: './login.css',
