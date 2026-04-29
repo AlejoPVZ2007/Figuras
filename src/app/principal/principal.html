@@ -23,14 +23,13 @@
 <mat-card class="example-card" appearance="outlined" id="famosas">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Broly</mat-card-title>
-    <mat-card-subtitle>Dragon Ball Z</mat-card-subtitle>
+    <mat-card-title matColumnDef="nombre">Broly</mat-card-title>
+    <mat-card-subtitle matColumnDef="serie">Dragon Ball Z</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://ae01.alicdn.com/kf/Se7556ca3f7b6426987b922b6ac78c5b41.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image="imagen" src="https://ae01.alicdn.com/kf/Se7556ca3f7b6426987b922b6ac78c5b41.jpg" alt="Photo of a Shiba Inu">
   <mat-card-content>
-    <p>
-      ---
-    </p>
+      <h6 matColumnDef="tamanio"></h6>
+      <h6 matColumnDef="fecha"></h6>
   </mat-card-content>
   <mat-card-actions>
     <button matButton>

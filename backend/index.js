@@ -32,4 +32,15 @@ app.get('/figuras', (req, res) => {
     });
 });
 
+app.get('/figuraPorId', (req, res) => {
+    db.query(`
+        SELECT f.idFigura, f.nombre, f.tamanio, f.fecha, s.idSerie, s.nombre 
+        FROM Figuras f INNER JOIN Serie s 
+        ON f.idSerie = s.idSerie
+        `, (err, results) => {
+            if(err) return res.status(500).json({ error: err});
+            res.json(results);
+        });
+});
+
 app.listen(3000, () => console.log('🚀 Servidor en http://localhost:3000'));

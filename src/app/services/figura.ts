@@ -14,4 +14,8 @@ export class Figura {
   agregarFigura(figura: any) {
     return this.http.post(this.url, figura);
   }
+
+  getFiguraPorId() {
+    return this.http.get<any[]>(this.url);
+  }
 }
