@@ -34,7 +34,7 @@ app.get('/figuras', (req, res) => {
 
 app.get('/figuraPorId', (req, res) => {
     db.query(`
-        SELECT f.idFigura, f.nombre, f.tamanio, f.fecha, s.idSerie, s.nombre 
+        SELECT f.idFigura, f.nombre, f.tamanio, f.fecha, f.imagen, s.nombre AS serie, s.icono 
         FROM Figuras f INNER JOIN Serie s 
         ON f.idSerie = s.idSerie
         `, (err, results) => {

@@ -8,27 +8,39 @@ import { Footer } from "../footer/footer";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { Figura } from '../services/figura';
-import { MatColumnDef } from "@angular/material/table";
+import { DatePipe } from '@angular/common';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 
 @Component({
   selector: 'app-principal',
-  imports: [RouterModule, Navbar, Footer, MatCardModule, MatButtonModule, MatIconModule, Footer, MatGridListModule, MatTabsModule, MatColumnDef],
+  imports: [
+    RouterModule, 
+    Navbar, 
+    Footer, 
+    MatCardModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatGridListModule, 
+    MatTabsModule, 
+    DatePipe],
   templateUrl: './principal.html',
   styleUrl: './principal.css',
 })
 export class Principal implements OnInit{
   
   figuraPorId: any[] = [];
-  columnasTabla = ['nombre', 'tamanio', 'serie', 'fecha', 'imagen'];
 
-  constructor(private figuraService: Figura, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private figuraService: Figura,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.figuraService.getFiguraPorId().subscribe(data => {
+      console.log('Data recibida:', data); // ← agrega esto
       this.figuraPorId = data;
       this.cdr.detectChanges();
     });
   }
-
 }

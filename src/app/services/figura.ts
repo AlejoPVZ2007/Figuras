@@ -16,6 +16,6 @@ export class Figura {
   }
 
   getFiguraPorId() {
-    return this.http.get<any[]>(this.url);
+    return this.http.get<any[]>('http://localhost:3000/figuraPorId');
   }
 }

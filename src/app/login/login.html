@@ -4,7 +4,7 @@
     <div class="login-panel">
         <h1>Login</h1>
 
-        <form class="login-form">
+        <form class="login-form" (ngSubmit)="onLogin()">
 
         <!-- Username -->
         <mat-form-field appearance="outline" class="full-width">
@@ -19,6 +19,7 @@
             <button
             matIconButton
             matSuffix
+            type="button"
             (click)="clickEvent($event)"
             [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide()"

@@ -5,40 +5,48 @@
     <mat-grid-tile><img src="https://elcomercio.pe/resizer/v2/SVYRBG6B5JDIBPWYMKGHXASUUE.jpg?auth=af353e7078b0659d2619048d9ad324abe84449484e0ed7e9269ed0ab6376d276&width=2400&height=1620&quality=75&smart=true"></mat-grid-tile>
     <mat-grid-tile><img src="https://a.storyblok.com/f/178900/1920x1080/d2ef1671e2/bluelock.jpg/m/1200x0/filters:quality(95)format(webp)"></mat-grid-tile>
     <mat-grid-tile><img src="https://elcomercio.pe/resizer/v2/RZTJQFHSIZBCBMB4WWDA4PU2QA.jpg?auth=b488ff6819c4fccf0a66b7665407cedb1568e26b85cfbbd59fdd37261ea9d24e&width=2400&height=1620&quality=75&smart=true"></mat-grid-tile>
-  </mat-grid-list>
+</mat-grid-list>
 
 <mat-tab-group id="categorias">
   <mat-tab label="Figuras">
-
+    <!--Colección de figuras-->
   </mat-tab>
   <mat-tab label="Cuadros">
-
+    <!--Colección de cuadros-->
   </mat-tab>
   <mat-tab label="Tickets">
-    
+    <!--Colección de tickets-->
   </mat-tab>
 </mat-tab-group>
 
 
-<mat-card class="example-card" appearance="outlined" id="famosas">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title matColumnDef="nombre">Broly</mat-card-title>
-    <mat-card-subtitle matColumnDef="serie">Dragon Ball Z</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image="imagen" src="https://ae01.alicdn.com/kf/Se7556ca3f7b6426987b922b6ac78c5b41.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-      <h6 matColumnDef="tamanio"></h6>
-      <h6 matColumnDef="fecha"></h6>
-  </mat-card-content>
-  <mat-card-actions>
-    <button matButton>
-      <mat-icon>thumb_up</mat-icon>LIKE
-    </button>
-    <button matButton>
-      <mat-icon>share</mat-icon>SHARE
-    </button>
-  </mat-card-actions>
-</mat-card>
+<div class="cards-container" id="famosas">
+  @for (figura of figuraPorId; track figura.idFigura) {
+      <mat-card class="figura-card example-card" appearance="outlined">
+        <mat-card-header>
+      <div mat-card-avatar 
+          [style.background-image]="'url(' + figura.icono + ')'"
+          [style.background-size]="'cover'"
+          [style.background-position]="'center'">
+      </div>
+      <mat-card-title>{{ figura.nombre }}</mat-card-title>
+      <mat-card-subtitle>{{ figura.serie }}</mat-card-subtitle>
+    </mat-card-header>
+      <img mat-card-image [src]="figura.imagen" [alt]="figura.nombre">
+        <mat-card-content>
+            <p><strong>Tamaño:</strong> {{ figura.tamanio }}</p>
+              <p><strong>Fecha:</strong> {{ figura.fecha | date:'dd/MM/yyyy' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button matButton>
+            <mat-icon>thumb_up</mat-icon>LIKE
+          </button>
+          <button matButton>
+            <mat-icon>share</mat-icon>SHARE
+          </button>
+        </mat-card-actions>
+    </mat-card>
+  }
+</div>
 
 <app-footer></app-footer>
